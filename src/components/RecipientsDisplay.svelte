@@ -25,12 +25,9 @@
         {#each recipientDisplayList as recipient, index}
             <span bind:clientWidth={recipientsWidth} class="recipients">
                 {recipient}
-                { recipient !== '...' && recipients.length > 1 ? ',' : ''}
+                { recipient !== '...' && recipients.length > 1  ? ',' : ''}
             </span>
         {/each}
-        {#if lengths}
-            <span>...</span>
-        {/if}
     </div>
     <div class="badgeContainer">
         {#if lengths }
@@ -55,11 +52,11 @@
         text-overflow: ellipsis;
     }
 
+
     @media screen and (max-width: 1440px) {
         .recipients {
-            overflow: hidden;
-            text-overflow: ellipsis;
             width: 80%;
+            overflow: hidden;
         }
 
         .badgeContainer {
@@ -69,12 +66,11 @@
 
     .emailContainer {
         display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
         font-size: 16px;
+        overflow: hidden;
         color: #333333;
         padding: 5px 10px;
-        width: 80%;
+        width: 100%;
 
     }
     .badge {
