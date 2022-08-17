@@ -28,6 +28,9 @@
                 { recipient !== '...' && recipients.length > 1 ? ',' : ''}
             </span>
         {/each}
+        {#if lengths}
+            <span>...</span>
+        {/if}
     </div>
     <div class="badgeContainer">
         {#if lengths }
