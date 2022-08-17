@@ -44,6 +44,7 @@
     }
     .badgeContainer{
         width: 10%;
+        margin-top: 6px;
     }
     .recipients {
         display: inline-block;
@@ -60,7 +61,6 @@
 
         .badgeContainer {
             width: 20%;
-            margin-top: 6px;
         }
     }
 
