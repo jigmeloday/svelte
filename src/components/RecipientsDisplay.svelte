@@ -26,6 +26,7 @@
             <span bind:clientWidth={recipientsWidth} class="recipients">
                 {recipient}
                 { recipient !== '...' && recipients.length > 1  ? ',' : ''}
+                { recipientDisplayList.length === index+1 && lengths &&recipients.length > 1  ? '...' : ''}
             </span>
         {/each}
     </div>
