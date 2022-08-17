@@ -47,9 +47,6 @@
     }
     .recipients {
         display: inline-block;
-        font-size: 16px;
-        color: #333333;
-        padding: 5px 10px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -71,6 +68,9 @@
         display: inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
+        font-size: 16px;
+        color: #333333;
+        padding: 5px 10px;
         width: 80%;
 
     }
