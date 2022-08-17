@@ -11,8 +11,8 @@
             recipientDisplayList = [ ...recipientDisplayList, recipient ]
             await tick()
             recipentsWidthSum += recipientsWidth
-            if ( recipentsWidthSum > innerWidth ) {
-                recipientDisplayList.pop() && recipientDisplayList.push( '...' )
+            if ( recipientDisplayList.length > 1 && recipentsWidthSum > innerWidth ) {
+                recipientDisplayList.pop()
                 lengths = (recipients.length - recipientDisplayList.length) + 1;
                 recipientDisplayList = recipientDisplayList
                 break;
@@ -20,19 +20,21 @@
         }
     })
 </script>
-    <main class="main">
-        <div class="emailContainer" bind:clientWidth={innerWidth}>
-            {#each recipientDisplayList as recipient, index}
+<main class="main">
+    <div class="emailContainer" bind:clientWidth={innerWidth}>
+        {#each recipientDisplayList as recipient, index}
             <span bind:clientWidth={recipientsWidth} class="recipients">
                 {recipient}
                 { recipient !== '...' && recipients.length > 1 ? ',' : ''}
             </span>
-            {/each}
-        </div>
+        {/each}
+    </div>
+    <div class="badgeContainer">
         {#if lengths }
             <span class="badge">{`+${lengths}`}</span>
         {/if}
-    </main>
+    </div>
+</main>
 <style>
     .main {
         width: 100%;
@@ -40,29 +42,45 @@
         flex-direction: row;
         justify-content: space-between;
     }
+    .badgeContainer{
+        width: 10%;
+    }
     .recipients {
         display: inline-block;
+        font-size: 16px;
+        color: #333333;
+        padding: 5px 10px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    @media screen and (max-width: 1080px) {
+
+    @media screen and (max-width: 1440px) {
         .recipients {
-            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 80%;
+        }
+
+        .badgeContainer {
+            width: 20%;
+            margin-top: 6px;
         }
     }
+
     .emailContainer {
         display: inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 90%;
+        width: 80%;
 
     }
     .badge {
-        background: rgba(3, 3, 3, 0.99);
+        background: #666666;
         height: 100%;
-        padding: 4px;
-        color: white;
-        border-radius: 4px;
+        font-size: 16px;
+        padding: 2px 5px 2px 5px;
+        color: #f0f0f0;
+        border-radius: 3px;
     }
 
 </style>
