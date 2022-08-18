@@ -31,23 +31,23 @@
     } )
 </script>
 <main class="main">
-    <!--        Here i am getting innerWidth so this is container which shows email container width -->
+    <!--Here i am getting innerWidth so this is container which shows email container width -->
     <div class="emailContainer" bind:clientWidth={innerWidth}>
         {#each recipientDisplayList as recipient, index}
-            <!--        Here i am getting recipientsWidth so this is width, which shows the individual emails width  -->
+            <!-- Here i am getting recipientsWidth so this is width, which shows the individual emails width  -->
             <span bind:clientWidth={recipientsWidth} class="recipients">
                 {recipient}
-                <!--                    I am showing comma if there is no ... because in design there is no comma after .... -->
+                <!-- I am showing comma if there is no ... because in design there is no comma after .... -->
                 { recipient !== '...' && recipients.length > 1 ? ',' : ''}
                 <!--this handle the showing of ellipsis base on the this condition if recipientDisplayList lenght is equal to the last index and if the -->
-                <!--                    recipients.length is greater than one then we showing ellipsis-->
+                <!-- recipients.length is greater than one then we showing ellipsis-->
                 { recipientDisplayList.length === index + 1 && lengths && recipients.length > 1 ? '...' : ''}
             </span>
         {/each}
     </div>
     <div class="badgeContainer">
-        <!--           This show the badge base on the remaining emails, if email is remaining emails is zero then it will not show the badge -->
-        <!--           but if remaining email is more than one then it will show the badge-->
+        <!-- This show the badge base on the remaining emails, if email is remaining emails is zero then it will not show the badge -->
+        <!-- but if remaining email is more than one then it will show the badge-->
         {#if lengths }
             <span class="badge">{`+${lengths}`}</span>
         {/if}
