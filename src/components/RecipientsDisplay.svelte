@@ -12,7 +12,7 @@
             recipientDisplayList = [ ...recipientDisplayList, recipient ]
             await tick()
             recipentsWidthSum += (recipientsWidth+40)
-            //will get total width and added 40 to make '...' this fit perfectly with rest of text
+            //will get total width and added 40 to make ellipsis  to fit perfectly with rest of text
             if ( recipientDisplayList.length > 1 && recipentsWidthSum > innerWidth ) {
                 //if recipientsWidthSum is greater than innerWidth(innerWidth is the width of the email container ) and if recipientDisplayList
                 //contains arrayList more than one then it will start removing recipientDisplayList items.
