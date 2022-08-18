@@ -21,9 +21,9 @@
                 //then it will not pop because we need to show first email with ellipsis.
                 recipientDisplayList.pop()
                 lengths = (recipients.length - recipientDisplayList.length)
-                //am assigning length cause in View i have to show badge which i can show base on length.
+                //I am assigning length cause in View I have to show badge which i can show base on length.
                 recipientDisplayList = recipientDisplayList
-                // am resigning the recipientDisplayList with new recipientDisplayList.
+                // I am resigning the recipientDisplayList with new recipientDisplayList.
                 break;
             }
         }
