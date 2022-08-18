@@ -34,7 +34,7 @@
 </script>
 <main class="main">
     <!--Here i am getting innerWidth so this is container which shows email container width -->
-    <div class="emailContainer" bind:clientWidth={innerWidth}>
+    <div class="email-container" bind:clientWidth={innerWidth}>
         {#each recipientDisplayList as recipient, index}
             <!-- Here i am getting recipientsWidth so this is width, which shows the individual emails width  -->
             <span bind:clientWidth={recipientsWidth} class="recipients">
@@ -47,7 +47,7 @@
             </span>
         {/each}
     </div>
-    <div class="badgeContainer">
+    <div class="badge-container">
         <!-- This show the badge base on the remaining emails, if email is remaining emails is zero then it will not show the badge -->
         <!-- but if remaining email is more than one then it will show the badge-->
         {#if lengths }
@@ -62,7 +62,7 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    .badgeContainer {
+    .badge-container {
         margin-top: 6px;
     }
     .recipients {
@@ -75,11 +75,11 @@
             width: 80%;
             overflow: hidden;
         }
-        .badgeContainer {
+        .badge-container {
             width: 20%;
         }
     }
-    .emailContainer {
+    .email-container {
         display: inline-block;
         font-size: 16px;
         overflow: hidden;
@@ -88,10 +88,10 @@
         width: 100%;
     }
     .badge {
-        background: #666666;
+        background-color: #666666;
         height: 100%;
         font-size: 16px;
-        padding: 2px 5px 2px 5px;
+        padding: 2px 5px;
         color: #f0f0f0;
         border-radius: 3px;
     }
