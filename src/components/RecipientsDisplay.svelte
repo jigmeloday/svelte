@@ -22,9 +22,9 @@
                 //then it will not pop because we need to show first email with ellipsis.
                 recipientDisplayList.pop()
                 lengths = (recipients.length - recipientDisplayList.length)
-                //am assigning length cause in View i have to show badge which i can show base on length.
+                //I am assigning length cause in View I have to show badge which I can show base on length.
                 recipientDisplayList = recipientDisplayList
-                // am resigning the recipientDisplayList with new recipientDisplayList.
+                //I am resigning the recipientDisplayList with new recipientDisplayList.
                 break;
             }
         }
@@ -60,29 +60,23 @@
         flex-direction: row;
         justify-content: space-between;
     }
-
     .badgeContainer {
         margin-top: 6px;
     }
-
     .recipients {
         display: inline-block;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
-
     @media screen and (max-width: 1440px) {
         .recipients {
             width: 80%;
             overflow: hidden;
         }
-
         .badgeContainer {
             width: 20%;
         }
     }
-
     .emailContainer {
         display: inline-block;
         font-size: 16px;
@@ -90,9 +84,7 @@
         color: #333333;
         padding: 5px 10px;
         width: 100%;
-
     }
-
     .badge {
         background: #666666;
         height: 100%;
@@ -101,5 +93,4 @@
         color: #f0f0f0;
         border-radius: 3px;
     }
-
 </style>
