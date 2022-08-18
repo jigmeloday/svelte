@@ -1,5 +1,6 @@
 <script lang="ts">
     import { tick, onMount } from 'svelte';
+
     export let recipients
     let recipientDisplayList = [];
     let innerWidth = 0;
@@ -11,23 +12,23 @@
             //Creating recipientDisplayList to store each recipient's emails
             recipientDisplayList = [ ...recipientDisplayList, recipient ]
             await tick()
-            recipentsWidthSum += (recipientsWidth+40)
-            //will get total width and added 40 to make ellipsis  to fit perfectly with rest of text
+            recipentsWidthSum += (recipientsWidth + 40)
+            //will get total width and added 40 to make '...' this fit perfectly with rest of text
             if ( recipientDisplayList.length > 1 && recipentsWidthSum > innerWidth ) {
                 //if recipientsWidthSum is greater than innerWidth(innerWidth is the width of the email container ) and if recipientDisplayList
                 //contains arrayList more than one then it will start removing recipientDisplayList items.
-                //First it will check the size(innerWidth and recipientsWidthSum) from this it will assume whether list is fitting or not.
+                //First it will check the size(innerWidth and recipentsWidthSum) from this it will assume whether list is fitting or not.
                 //if list is not fitting then it will check  recipientDisplayList length and if recipientDisplayList length is less than one
                 //then it will not pop because we need to show first email with ellipsis.
                 recipientDisplayList.pop()
                 lengths = (recipients.length - recipientDisplayList.length)
-                //I am assigning length cause in View I have to show badge which i can show base on length.
+                //am assigning length cause in View i have to show badge which i can show base on length.
                 recipientDisplayList = recipientDisplayList
-                // I am resigning the recipientDisplayList with new recipientDisplayList.
+                // am resigning the recipientDisplayList with new recipientDisplayList.
                 break;
             }
         }
-    })
+    } )
 </script>
 <main class="main">
     <!--        Here i am getting innerWidth so this is container which shows email container width -->
@@ -37,10 +38,10 @@
             <span bind:clientWidth={recipientsWidth} class="recipients">
                 {recipient}
                 <!--                    I am showing comma if there is no ... because in design there is no comma after .... -->
-                { recipient !== '...' && recipients.length > 1  ? ',' : ''}
+                { recipient !== '...' && recipients.length > 1 ? ',' : ''}
                 <!--this handle the showing of ellipsis base on the this condition if recipientDisplayList lenght is equal to the last index and if the -->
                 <!--                    recipients.length is greater than one then we showing ellipsis-->
-                { recipientDisplayList.length === index+1 && lengths &&recipients.length > 1  ? '...' : ''}
+                { recipientDisplayList.length === index + 1 && lengths && recipients.length > 1 ? '...' : ''}
             </span>
         {/each}
     </div>
@@ -59,9 +60,11 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    .badgeContainer{
+
+    .badgeContainer {
         margin-top: 6px;
     }
+
     .recipients {
         display: inline-block;
         overflow: hidden;
@@ -89,6 +92,7 @@
         width: 100%;
 
     }
+
     .badge {
         background: #666666;
         height: 100%;
