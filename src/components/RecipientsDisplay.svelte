@@ -3,15 +3,17 @@
 
     export let recipients
     let recipientDisplayList = [];
-    let innerWidth = 0;
-    let recipientsWidth = 0;
-    let recipentsWidthSum = 0;
+    let innerWidth = 0;//Inner width is the width of email container width.
+    let recipientsWidth = 0; //recipientsWidth width is the width of email length.
+    let recipentsWidthSum = 0; // recipentsWidthSum is the total width of recipientsWidth
     let lengths = 0;
     onMount( async () => {
         for ( let recipient of recipients ) {
             //Creating recipientDisplayList to store each recipient's emails
             recipientDisplayList = [ ...recipientDisplayList, recipient ]
+            //The tick function is unlike other lifecycle functions in that you can call it any time
             await tick()
+            //recipientsWidth is the width of the individual email.
             recipentsWidthSum += (recipientsWidth + 40)
             //will get total width and added 40 to make '...' this fit perfectly with rest of text
             if ( recipientDisplayList.length > 1 && recipentsWidthSum > innerWidth ) {
