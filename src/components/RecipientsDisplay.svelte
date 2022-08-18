@@ -16,7 +16,7 @@
             if ( recipientDisplayList.length > 1 && recipentsWidthSum > innerWidth ) {
                 //if recipientsWidthSum is greater than innerWidth(innerWidth is the width of the email container ) and if recipientDisplayList
                 //contains arrayList more than one then it will start removing recipientDisplayList items.
-                //First it will check the size(innerWidth and recipentsWidthSum) from this it will assume whether list is fitting or not.
+                //First it will check the size(innerWidth and recipientsWidthSum) from this it will assume whether list is fitting or not.
                 //if list is not fitting then it will check  recipientDisplayList length and if recipientDisplayList length is less than one
                 //then it will not pop because we need to show first email with ellipsis.
                 recipientDisplayList.pop()
