@@ -1,6 +1,5 @@
 <script lang="ts">
     import { tick, onMount } from 'svelte';
-
     export let recipients
     let recipientDisplayList = [];
     let innerWidth = 0;//Inner width is the width of email container width.
@@ -17,11 +16,10 @@
             recipentsWidthSum += (recipientsWidth + 40)
             // recipentsWidthSum will get total width and added 40 to make ellipsis this fit perfectly with rest of text
             if ( recipientDisplayList.length > 1 && recipentsWidthSum > innerWidth ) {
-                //if recipientsWidthSum is greater than innerWidth(innerWidth is the width of the email container ) and if recipientDisplayList
-                //contains arrayList more than one, then it will start removing recipientDisplayList items.
-                //First it will check the size(innerWidth and recipentsWidthSum) from this it will assume whether list is fitting or not.
+                //if recipientsWidthSum is greater than innerWidth and if recipientDisplayList contains arrayList more than one
+                //then it will start removing recipientDisplayList items.
                 //if list is not fitting then it will check  recipientDisplayList length and if recipientDisplayList length is less than one
-                //then it will not pop because we need to show first email with ellipsis.
+                //then it will not pop.
                 recipientDisplayList.pop()
                 lengths = (recipients.length - recipientDisplayList.length)
                 //I am assigning length cause in View I have to show badge which I can show base on length.
